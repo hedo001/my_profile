@@ -33,7 +33,15 @@
     --scrollbar-thumb: rgba(127, 29, 58, 0.45);
     --gradient-heading: linear-gradient(135deg, #7F1D3A 0%, #A6264C 55%, #4A1022 100%);
 
-    @media (prefers-color-scheme: dark) {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+    accent-color: var(--accent);
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
       --background: var(--bg-dark);
       --panel: var(--panel-dark);
       --accent: var(--accent-dark);
@@ -48,42 +56,44 @@
       --scrollbar-thumb: rgba(232, 213, 210, 0.35);
       --gradient-heading: linear-gradient(135deg, #E8D5D2 0%, #D46A84 50%, #7F1D3A 100%);
     }
+  }
 
-    &:has(> head > meta[name="color-scheme"][content="dark"]) {
-      color-scheme: dark;
-      --background: var(--bg-dark);
-      --panel: var(--panel-dark);
-      --accent: var(--accent-dark);
-      --foreground: var(--text-dark);
-      --muted: var(--muted-dark);
-      --accent-text: #E8D5D2;
-      --panel-surface: rgba(232, 213, 210, 0.07);
-      --panel-subtle: rgba(232, 213, 210, 0.04);
-      --panel-border: rgba(232, 213, 210, 0.18);
-      --navbar-bg: rgba(8, 13, 24, 0.85);
-      --scrollbar-track: #080D18;
-      --scrollbar-thumb: rgba(232, 213, 210, 0.35);
-      --gradient-heading: linear-gradient(135deg, #E8D5D2 0%, #D46A84 50%, #7F1D3A 100%);
-    }
+  :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --background: var(--bg-dark);
+    --panel: var(--panel-dark);
+    --accent: var(--accent-dark);
+    --foreground: var(--text-dark);
+    --muted: var(--muted-dark);
+    --accent-text: #E8D5D2;
+    --panel-surface: rgba(232, 213, 210, 0.07);
+    --panel-subtle: rgba(232, 213, 210, 0.04);
+    --panel-border: rgba(232, 213, 210, 0.18);
+    --navbar-bg: rgba(8, 13, 24, 0.85);
+    --scrollbar-track: #080D18;
+    --scrollbar-thumb: rgba(232, 213, 210, 0.35);
+    --gradient-heading: linear-gradient(135deg, #E8D5D2 0%, #D46A84 50%, #7F1D3A 100%);
+  }
 
-    &:has(> head > meta[name="color-scheme"][content="light"]) {
-      color-scheme: light;
-      --background: var(--bg-light);
-      --panel: var(--panel-light);
-      --accent: var(--accent-light);
-      --foreground: var(--text-light);
-      --muted: var(--muted-light);
-      --accent-text: #7F1D3A;
-      --panel-surface: rgba(232, 213, 210, 0.55);
-      --panel-subtle: rgba(232, 213, 210, 0.32);
-      --panel-border: rgba(127, 29, 58, 0.22);
-      --navbar-bg: rgba(250, 247, 242, 0.85);
-      --scrollbar-track: #FAF7F2;
-      --scrollbar-thumb: rgba(127, 29, 58, 0.45);
-      --gradient-heading: linear-gradient(135deg, #7F1D3A 0%, #A6264C 55%, #4A1022 100%);
-    }
+  :root:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --background: var(--bg-light);
+    --panel: var(--panel-light);
+    --accent: var(--accent-light);
+    --foreground: var(--text-light);
+    --muted: var(--muted-light);
+    --accent-text: #7F1D3A;
+    --panel-surface: rgba(232, 213, 210, 0.55);
+    --panel-subtle: rgba(232, 213, 210, 0.32);
+    --panel-border: rgba(127, 29, 58, 0.22);
+    --navbar-bg: rgba(250, 247, 242, 0.85);
+    --scrollbar-track: #FAF7F2;
+    --scrollbar-thumb: rgba(127, 29, 58, 0.45);
+    --gradient-heading: linear-gradient(135deg, #7F1D3A 0%, #A6264C 55%, #4A1022 100%);
+  }
 
-    @supports (color: light-dark(white, black)) {
+  @supports (color: light-dark(white, black)) {
+    :root {
       --background: light-dark(var(--bg-light), var(--bg-dark));
       --panel: light-dark(var(--panel-light), var(--panel-dark));
       --accent: light-dark(var(--accent-light), var(--accent-dark));
@@ -97,12 +107,6 @@
       --scrollbar-track: light-dark(#FAF7F2, #080D18);
       --scrollbar-thumb: light-dark(rgba(127, 29, 58, 0.45), rgba(232, 213, 210, 0.35));
     }
-
-    scroll-behavior: smooth;
-    color-scheme: light dark;
-    accent-color: var(--accent);
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 
   body {
