@@ -37,47 +37,51 @@ export default function Contact() {
       value: personal.email,
       href: `mailto:${personal.email}`,
       icon: Mail,
-      color: "text-violet-400 border-violet-500/10 bg-violet-500/5",
+      color: "text-accent-fg border-panel-border bg-accent/10",
     },
     {
       label: "LinkedIn Professional",
       value: personal.linkedin,
-      href: `https://${personal.linkedin}`,
+      href: personal.linkedin.startsWith("http")
+        ? personal.linkedin
+        : `https://${personal.linkedin}`,
       icon: Linkedin,
-      color: "text-blue-400 border-blue-500/10 bg-blue-500/5",
+      color: "text-accent-fg border-panel-border bg-accent/10",
     },
     {
       label: "GitHub Source",
       value: personal.github,
-      href: `https://${personal.github}`,
+      href: personal.github.startsWith("http")
+        ? personal.github
+        : `https://${personal.github}`,
       icon: Github,
-      color: "text-cyan-400 border-cyan-500/10 bg-cyan-500/5",
+      color: "text-accent-fg border-panel-border bg-accent/10",
     },
     {
       label: "Office Location",
       value: personal.location,
       href: "#",
       icon: MapPin,
-      color: "text-pink-400 border-pink-500/10 bg-pink-500/5",
+      color: "text-accent-fg border-panel-border bg-accent/10",
     },
   ];
 
   return (
     <section id="contact" className="py-20 md:py-28 relative">
       {/* Background glowing orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-violet-600/5 blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-[#7F1D3A]/10 blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent-fg mb-3">
             Inquiries
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
             Contact <span className="text-gradient-purple-cyan">Me</span>
           </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-violet-600 to-cyan-400 rounded-full mt-4" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#7F1D3A] to-[#E8D5D2] rounded-full mt-4" />
         </div>
 
         {/* Form & Info Layout Split */}
@@ -86,10 +90,10 @@ export default function Contact() {
           {/* Left Column: Direct info nodes */}
           <div className="lg:col-span-5 flex flex-col justify-between text-left">
             <div>
-              <h3 className="text-2xl font-extrabold text-white mb-4 leading-tight">
+              <h3 className="text-2xl font-extrabold text-foreground mb-4 leading-tight">
                 Let&apos;s build something <span className="text-gradient-purple-cyan">great</span> together.
               </h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+              <p className="text-muted text-sm md:text-base leading-relaxed mb-8">
                 Have a project, opportunity, or idea? I&apos;d love to hear from you. Feel free to reach out via direct channels or leave a secure ping through the contact desk.
               </p>
             </div>
@@ -104,16 +108,16 @@ export default function Contact() {
                     href={node.href}
                     target={node.href !== "#" ? "_blank" : undefined}
                     rel={node.href !== "#" ? "noopener noreferrer" : undefined}
-                    className="p-4 rounded-xl glass-card hover:bg-white/[0.04] border border-white/[0.05] hover:border-violet-500/20 flex items-center gap-4 transition-all duration-300 group"
+                    className="p-4 rounded-xl glass-card hover:bg-panel-surface border border-panel-border hover:border-accent/50 flex items-center gap-4 transition-all duration-300 group"
                   >
                     <div className={`w-11 h-11 rounded-lg border flex items-center justify-center shrink-0 ${node.color} group-hover:scale-110 transition-transform duration-300`}>
                       <Icon size={18} />
                     </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-0.5">
+                    <div className="min-w-0">
+                      <span className="text-[10px] font-bold text-muted uppercase tracking-widest block mb-0.5">
                         {node.label}
                       </span>
-                      <span className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors">
+                      <span className="text-sm font-semibold text-foreground group-hover:text-accent-fg transition-colors truncate block">
                         {node.value}
                       </span>
                     </div>
@@ -125,7 +129,7 @@ export default function Contact() {
 
           {/* Right Column: Custom Animated Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card border border-white/[0.08] p-8 rounded-3xl shadow-xl h-full flex flex-col justify-center relative overflow-hidden">
+            <div className="glass-card border border-panel-border p-8 rounded-3xl shadow-xl h-full flex flex-col justify-center relative overflow-hidden">
               
               {/* Form container animation layer */}
               <AnimatePresence mode="wait">
@@ -136,12 +140,12 @@ export default function Contact() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="flex flex-col items-center justify-center text-center py-12"
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center text-emerald-400 mb-6 shadow-lg shadow-emerald-500/20 animate-bounce">
+                    <div className="w-16 h-16 rounded-full bg-accent/15 border-2 border-accent flex items-center justify-center text-accent-fg mb-6 shadow-lg shadow-[#7F1D3A]/20 animate-bounce">
                       <CheckCircle2 size={32} />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Message Sent Successfully!</h4>
-                    <p className="text-sm text-gray-400 max-w-sm">
-                      Thank you, Alex has received your transmission and will reply as soon as possible.
+                    <h4 className="text-xl font-bold text-foreground mb-2">Message Sent Successfully!</h4>
+                    <p className="text-sm text-muted max-w-sm">
+                      Thank you, Dilafruzkhon has received your transmission and will reply as soon as possible.
                     </p>
                   </motion.div>
                 ) : (
@@ -153,7 +157,7 @@ export default function Contact() {
                   >
                     {/* Name */}
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">
+                      <label className="text-xs font-bold text-muted uppercase tracking-wider block mb-2">
                         Your Name
                       </label>
                       <input
@@ -164,13 +168,13 @@ export default function Contact() {
                         onChange={handleInputChange}
                         disabled={status === "submitting"}
                         placeholder="e.g. Sebastian Vance"
-                        className="w-full px-5 py-3.5 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white placeholder-gray-600 text-sm focus:outline-none transition-all duration-300 shadow-inner"
+                        className="w-full px-5 py-3.5 rounded-xl bg-background/60 border border-panel-border hover:border-accent/50 focus:border-accent focus:ring-1 focus:ring-accent text-foreground placeholder-muted/60 text-sm focus:outline-none transition-all duration-300 shadow-inner"
                       />
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">
+                      <label className="text-xs font-bold text-muted uppercase tracking-wider block mb-2">
                         Email Address
                       </label>
                       <input
@@ -181,13 +185,13 @@ export default function Contact() {
                         onChange={handleInputChange}
                         disabled={status === "submitting"}
                         placeholder="e.g. sebastian@agency.com"
-                        className="w-full px-5 py-3.5 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white placeholder-gray-600 text-sm focus:outline-none transition-all duration-300 shadow-inner"
+                        className="w-full px-5 py-3.5 rounded-xl bg-background/60 border border-panel-border hover:border-accent/50 focus:border-accent focus:ring-1 focus:ring-accent text-foreground placeholder-muted/60 text-sm focus:outline-none transition-all duration-300 shadow-inner"
                       />
                     </div>
 
                     {/* Message */}
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">
+                      <label className="text-xs font-bold text-muted uppercase tracking-wider block mb-2">
                         Message Content
                       </label>
                       <textarea
@@ -198,7 +202,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         disabled={status === "submitting"}
                         placeholder="Detail your request, architecture needs, or opportunities..."
-                        className="w-full px-5 py-3.5 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white placeholder-gray-600 text-sm focus:outline-none transition-all duration-300 resize-none shadow-inner leading-relaxed"
+                        className="w-full px-5 py-3.5 rounded-xl bg-background/60 border border-panel-border hover:border-accent/50 focus:border-accent focus:ring-1 focus:ring-accent text-foreground placeholder-muted/60 text-sm focus:outline-none transition-all duration-300 resize-none shadow-inner leading-relaxed"
                       />
                     </div>
 
@@ -206,7 +210,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-violet-500/10 hover:shadow-violet-500/20 disabled:opacity-50"
+                      className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-accent hover:bg-[#681830] text-[#FAF7F2] font-bold text-sm transition-all duration-300 shadow-lg shadow-[#7F1D3A]/20 hover:shadow-[#7F1D3A]/35 disabled:opacity-50"
                     >
                       {status === "submitting" ? (
                         <>

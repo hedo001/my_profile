@@ -24,6 +24,7 @@ export default function Skills() {
     { id: "all", label: "All Skills" },
     { id: "frontend", label: "Frontend" },
     { id: "frameworks", label: "Frameworks & UI" },
+    { id: "analytics", label: "Data & Analytics" },
     { id: "tools", label: "Tools & Core" },
   ];
 
@@ -49,21 +50,21 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 md:py-28 relative bg-[#060320]/20">
+    <section id="skills" className="py-20 md:py-28 relative bg-panel-subtle">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-indigo-600/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#7F1D3A]/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent-fg mb-3">
             Core Competencies
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
             My <span className="text-gradient-purple-cyan">Skills</span>
           </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-violet-600 to-cyan-400 rounded-full mt-4" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#7F1D3A] to-[#E8D5D2] rounded-full mt-4" />
         </div>
 
         {/* Tab Filters */}
@@ -74,8 +75,8 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 border ${
                 activeCategory === cat.id
-                  ? "bg-gradient-to-r from-violet-600 to-cyan-500 text-white border-transparent shadow-lg shadow-violet-500/25 scale-[1.03]"
-                  : "bg-white/[0.02] text-gray-400 hover:text-white border-white/[0.05] hover:border-white/10"
+                  ? "bg-accent text-[#FAF7F2] border-transparent shadow-lg shadow-[#7F1D3A]/25 scale-[1.03]"
+                  : "bg-panel-subtle text-muted hover:text-foreground border-panel-border hover:border-accent/50"
               }`}
             >
               {cat.label}
@@ -98,7 +99,6 @@ export default function Skills() {
               whileHover={{ y: -6, scale: 1.02 }}
               className="p-5 md:p-6 rounded-2xl glass-card glow-border hover:shadow-2xl flex flex-col items-start gap-4 transition-all duration-300 relative overflow-hidden group"
               style={{
-                // Set the custom glow shadow behind the card on hover using custom css vars or standard style tag
                 boxShadow: `0 0 0px transparent`,
               }}
             >
@@ -111,20 +111,22 @@ export default function Skills() {
               />
 
               {/* Icon Container */}
-              <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-violet-400 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-panel-subtle border border-panel-border flex items-center justify-center text-accent-fg group-hover:bg-accent group-hover:text-[#FAF7F2] group-hover:scale-110 transition-all duration-300 relative z-10">
                 <SkillIcon name={skill.iconName} />
               </div>
 
               {/* Title & Level */}
               <div className="relative z-10 mt-1">
-                <h3 className="font-bold text-base md:text-lg text-white group-hover:text-violet-300 transition-colors">
+                <h3 className="font-bold text-base md:text-lg text-foreground group-hover:text-accent-fg transition-colors">
                   {skill.name}
                 </h3>
-                <span className="text-xs text-gray-500 font-semibold tracking-wide uppercase mt-1 block">
+                <span className="text-xs text-muted font-semibold tracking-wide uppercase mt-1 block">
                   {skill.category === "frontend"
                     ? "Frontend UI"
                     : skill.category === "frameworks"
                     ? "Framework / CSS"
+                    : skill.category === "analytics"
+                    ? "Data & Analytics"
                     : "Development Tool"}
                 </span>
               </div>

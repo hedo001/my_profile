@@ -11,9 +11,9 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#030014] text-gray-100 overflow-x-hidden relative selection:bg-violet-500/20 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden relative selection:bg-accent/25 selection:text-foreground">
       {/* Dynamic Background Noise/Texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(127,29,58,0.14),rgba(232,213,210,0))] pointer-events-none" />
 
       {/* Persistent Global Navigation */}
       <Navbar />

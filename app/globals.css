@@ -3,51 +3,150 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  :root {
+    /* Burgundy & Ivory — Light Mode Tokens */
+    --bg-light: #FAF7F2;
+    --panel-light: #E8D5D2;
+    --accent-light: #7F1D3A;
+    --text-light: #30252A;
+    --muted-light: #75666A;
+
+    /* Burgundy & Ivory — Dark Mode Tokens */
+    --bg-dark: #080D18;
+    --panel-dark: #E8D5D2;
+    --accent-dark: #7F1D3A;
+    --text-dark: #F8FAFC;
+    --muted-dark: #B8C2D3;
+
+    /* Default (Light) fallback for browsers without light-dark() */
+    --background: var(--bg-light);
+    --panel: var(--panel-light);
+    --accent: var(--accent-light);
+    --foreground: var(--text-light);
+    --muted: var(--muted-light);
+    --accent-text: #7F1D3A;
+    --panel-surface: rgba(232, 213, 210, 0.55);
+    --panel-subtle: rgba(232, 213, 210, 0.32);
+    --panel-border: rgba(127, 29, 58, 0.22);
+    --navbar-bg: rgba(250, 247, 242, 0.85);
+    --scrollbar-track: #FAF7F2;
+    --scrollbar-thumb: rgba(127, 29, 58, 0.45);
+    --gradient-heading: linear-gradient(135deg, #7F1D3A 0%, #A6264C 55%, #4A1022 100%);
+
+    @media (prefers-color-scheme: dark) {
+      --background: var(--bg-dark);
+      --panel: var(--panel-dark);
+      --accent: var(--accent-dark);
+      --foreground: var(--text-dark);
+      --muted: var(--muted-dark);
+      --accent-text: #E8D5D2;
+      --panel-surface: rgba(232, 213, 210, 0.07);
+      --panel-subtle: rgba(232, 213, 210, 0.04);
+      --panel-border: rgba(232, 213, 210, 0.18);
+      --navbar-bg: rgba(8, 13, 24, 0.85);
+      --scrollbar-track: #080D18;
+      --scrollbar-thumb: rgba(232, 213, 210, 0.35);
+      --gradient-heading: linear-gradient(135deg, #E8D5D2 0%, #D46A84 50%, #7F1D3A 100%);
+    }
+
+    &:has(> head > meta[name="color-scheme"][content="dark"]) {
+      color-scheme: dark;
+      --background: var(--bg-dark);
+      --panel: var(--panel-dark);
+      --accent: var(--accent-dark);
+      --foreground: var(--text-dark);
+      --muted: var(--muted-dark);
+      --accent-text: #E8D5D2;
+      --panel-surface: rgba(232, 213, 210, 0.07);
+      --panel-subtle: rgba(232, 213, 210, 0.04);
+      --panel-border: rgba(232, 213, 210, 0.18);
+      --navbar-bg: rgba(8, 13, 24, 0.85);
+      --scrollbar-track: #080D18;
+      --scrollbar-thumb: rgba(232, 213, 210, 0.35);
+      --gradient-heading: linear-gradient(135deg, #E8D5D2 0%, #D46A84 50%, #7F1D3A 100%);
+    }
+
+    &:has(> head > meta[name="color-scheme"][content="light"]) {
+      color-scheme: light;
+      --background: var(--bg-light);
+      --panel: var(--panel-light);
+      --accent: var(--accent-light);
+      --foreground: var(--text-light);
+      --muted: var(--muted-light);
+      --accent-text: #7F1D3A;
+      --panel-surface: rgba(232, 213, 210, 0.55);
+      --panel-subtle: rgba(232, 213, 210, 0.32);
+      --panel-border: rgba(127, 29, 58, 0.22);
+      --navbar-bg: rgba(250, 247, 242, 0.85);
+      --scrollbar-track: #FAF7F2;
+      --scrollbar-thumb: rgba(127, 29, 58, 0.45);
+      --gradient-heading: linear-gradient(135deg, #7F1D3A 0%, #A6264C 55%, #4A1022 100%);
+    }
+
+    @supports (color: light-dark(white, black)) {
+      --background: light-dark(var(--bg-light), var(--bg-dark));
+      --panel: light-dark(var(--panel-light), var(--panel-dark));
+      --accent: light-dark(var(--accent-light), var(--accent-dark));
+      --foreground: light-dark(var(--text-light), var(--text-dark));
+      --muted: light-dark(var(--muted-light), var(--muted-dark));
+      --accent-text: light-dark(#7F1D3A, #E8D5D2);
+      --panel-surface: light-dark(rgba(232, 213, 210, 0.55), rgba(232, 213, 210, 0.07));
+      --panel-subtle: light-dark(rgba(232, 213, 210, 0.32), rgba(232, 213, 210, 0.04));
+      --panel-border: light-dark(rgba(127, 29, 58, 0.22), rgba(232, 213, 210, 0.18));
+      --navbar-bg: light-dark(rgba(250, 247, 242, 0.85), rgba(8, 13, 24, 0.85));
+      --scrollbar-track: light-dark(#FAF7F2, #080D18);
+      --scrollbar-thumb: light-dark(rgba(127, 29, 58, 0.45), rgba(232, 213, 210, 0.35));
+    }
+
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light dark;
+    accent-color: var(--accent);
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
-  
+
   body {
-    background-color: #030014;
-    color: #f3f4f6;
+    background-color: var(--background);
+    color: var(--foreground);
     overflow-x: hidden;
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Custom selection styling */
   ::selection {
-    background: rgba(139, 92, 246, 0.3);
-    color: #ffffff;
+    background: rgba(127, 29, 58, 0.28);
+    color: var(--foreground);
   }
 }
 
 @layer utilities {
   /* Premium Glassmorphism styling */
   .glass-card {
-    background: rgba(10, 7, 30, 0.55);
+    background: var(--panel-surface);
     backdrop-filter: blur(16px) saturate(130%);
     -webkit-backdrop-filter: blur(16px) saturate(130%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--panel-border);
   }
 
   .glass-navbar {
-    background: rgba(3, 0, 20, 0.7);
+    background: var(--navbar-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--panel-border);
   }
 
   /* Text gradients */
-  .text-gradient-purple-cyan {
-    background: linear-gradient(135deg, #a78bfa 0%, #3b82f6 50%, #22d3ee 100%);
+  .text-gradient-purple-cyan,
+  .text-gradient-burgundy {
+    background: var(--gradient-heading);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-blue-pink {
-    background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+    background: linear-gradient(135deg, #7F1D3A 0%, #E8D5D2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -58,18 +157,23 @@
     position: relative;
     transition: all 0.3s ease;
   }
-  
+
   .glow-border::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(to bottom right, rgba(167, 139, 250, 0.3), rgba(59, 130, 246, 0.3), rgba(34, 211, 238, 0.3));
+    background: linear-gradient(
+      to bottom right,
+      rgba(127, 29, 58, 0.45),
+      rgba(232, 213, 210, 0.45),
+      rgba(127, 29, 58, 0.25)
+    );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    opacity: 0.3;
+    opacity: 0.35;
     pointer-events: none;
     transition: opacity 0.3s ease;
   }
@@ -78,22 +182,28 @@
     opacity: 1;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
+  @media (forced-colors: active) {
+    .glass-card,
+    .glow-border {
+      border: 1px solid CanvasText;
+    }
   }
 
-  ::-webkit-scrollbar-track {
-    background: #030014;
-  }
+  /* Legacy scrollbar fallback for older WebKit browsers */
+  @supports not (scrollbar-color: auto) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.2);
-    border-radius: 9999px;
-  }
+    ::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.4);
+    ::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border-radius: 9999px;
+    }
   }
 }
 

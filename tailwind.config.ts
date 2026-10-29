@@ -11,6 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        panel: "var(--panel)",
+        "panel-surface": "var(--panel-surface)",
+        "panel-subtle": "var(--panel-subtle)",
+        "panel-border": "var(--panel-border)",
+        accent: "var(--accent)",
+        "accent-fg": "var(--accent-text)",
+        muted: "var(--muted)",
       },
     },
   },

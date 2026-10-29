@@ -1,6 +1,6 @@
 export interface Skill {
   name: string;
-  category: "frontend" | "frameworks" | "tools" | "others";
+  category: "frontend" | "frameworks" | "analytics" | "tools" | "others";
   iconName: string;
   glowColor: string; // Tailored glow for each skill
 }
@@ -46,7 +46,7 @@ export const portfolioConfig = {
     name: "Dilafruzkhon Mukhtorova",
     title: "Mid-Level Frontend Engineer & Creative Developer",
     availability: "Available for opportunities",
-    resumeUrl: "#", // Standard CV download anchor
+    resumeUrl: "/Dilafruzkhon_Mukhtorova_CV.pdf", // Standard CV download anchor
     email: "dilafruzkhon.mukhtorova@gmail.com",
     github: "https://github.com/hedo001",
     linkedin: "https://www.linkedin.com/in/dilafruzkhon-mukhtorova-245328223",
@@ -94,25 +94,25 @@ console.log('✨ Portfolio compiles successfully!');`,
       name: "HTML5 & CSS3",
       category: "frontend",
       iconName: "Html5",
-      glowColor: "rgba(239, 68, 68, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "JavaScript (ES6+)",
       category: "frontend",
       iconName: "FileJson",
-      glowColor: "rgba(234, 179, 8, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "TypeScript",
       category: "frontend",
       iconName: "Code",
-      glowColor: "rgba(59, 130, 246, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "React.js",
       category: "frontend",
       iconName: "Atom",
-      glowColor: "rgba(6, 182, 212, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
 
     // Frameworks
@@ -120,25 +120,63 @@ console.log('✨ Portfolio compiles successfully!');`,
       name: "Next.js (App Router)",
       category: "frameworks",
       iconName: "Layers",
-      glowColor: "rgba(255, 255, 255, 0.1)",
+      glowColor: "rgba(232, 213, 210, 0.22)",
     },
     {
       name: "Tailwind CSS",
       category: "frameworks",
       iconName: "Palette",
-      glowColor: "rgba(14, 165, 233, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "Chakra UI",
       category: "frameworks",
       iconName: "Sparkles",
-      glowColor: "rgba(49, 151, 149, 0.15)",
+      glowColor: "rgba(232, 213, 210, 0.22)",
     },
     {
       name: "Material UI",
       category: "frameworks",
       iconName: "Compass",
-      glowColor: "rgba(0, 129, 203, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
+    },
+
+    // Data & Analytics
+    {
+      name: "R",
+      category: "analytics",
+      iconName: "BarChart3",
+      glowColor: "rgba(127, 29, 58, 0.25)",
+    },
+    {
+      name: "Python (Basic)",
+      category: "analytics",
+      iconName: "FileCode",
+      glowColor: "rgba(127, 29, 58, 0.25)",
+    },
+    {
+      name: "Data Analysis & Interpretation",
+      category: "analytics",
+      iconName: "LineChart",
+      glowColor: "rgba(127, 29, 58, 0.25)",
+    },
+    {
+      name: "Microsoft Excel",
+      category: "analytics",
+      iconName: "FileSpreadsheet",
+      glowColor: "rgba(232, 213, 210, 0.25)",
+    },
+    {
+      name: "Forecasting",
+      category: "analytics",
+      iconName: "TrendingUp",
+      glowColor: "rgba(127, 29, 58, 0.25)",
+    },
+    {
+      name: "Business Process Analysis",
+      category: "analytics",
+      iconName: "Workflow",
+      glowColor: "rgba(232, 213, 210, 0.25)",
     },
 
     // Tools
@@ -146,25 +184,25 @@ console.log('✨ Portfolio compiles successfully!');`,
       name: "Git",
       category: "tools",
       iconName: "GitBranch",
-      glowColor: "rgba(240, 80, 50, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "GitHub",
       category: "tools",
       iconName: "Github",
-      glowColor: "rgba(255, 255, 255, 0.15)",
+      glowColor: "rgba(232, 213, 210, 0.22)",
     },
     {
       name: "REST APIs",
       category: "tools",
       iconName: "Server",
-      glowColor: "rgba(16, 185, 129, 0.15)",
+      glowColor: "rgba(127, 29, 58, 0.22)",
     },
     {
       name: "Framer Motion",
       category: "tools",
       iconName: "Activity",
-      glowColor: "rgba(217, 70, 239, 0.15)",
+      glowColor: "rgba(232, 213, 210, 0.22)",
     },
   ] as Skill[],
 
@@ -292,28 +330,28 @@ console.log('✨ Portfolio compiles successfully!');`,
       description:
         "Building exceptionally fast, fully responsive, and robustly structured interfaces using standard React, Next.js, and typescript configurations.",
       iconName: "Cpu",
-      gradient: "from-violet-600 via-indigo-600 to-blue-500",
+      gradient: "from-[#7F1D3A] via-[#9E2A4B] to-[#5A1429]",
     },
     {
       title: "Web App Design",
       description:
         "Developing robust, modern single-page applications and serverside-rendered architectures, integrating custom global store management solutions.",
       iconName: "Monitor",
-      gradient: "from-indigo-600 via-blue-600 to-cyan-500",
+      gradient: "from-[#5A1429] via-[#7F1D3A] to-[#A63A5B]",
     },
     {
       title: "UI/UX Implementation",
       description:
         "Transforming high-fidelity Figma designs into pixel-perfect responsive components, ensuring complete structural matches across all screen sizes.",
       iconName: "Layers",
-      gradient: "from-blue-600 via-cyan-600 to-teal-500",
+      gradient: "from-[#7F1D3A] via-[#681830] to-[#30252A]",
     },
     {
       title: "Performance Audits",
       description:
         "Optimizing overall rendering speeds, core web vitals (LCP, INP, CLS), asset loading processes, and achieving WCAG 2.1 AA accessibility guidelines.",
       iconName: "Zap",
-      gradient: "from-cyan-600 via-teal-600 to-emerald-500",
+      gradient: "from-[#9E2A4B] via-[#7F1D3A] to-[#4A1022]",
     },
   ] as Service[],
 };
